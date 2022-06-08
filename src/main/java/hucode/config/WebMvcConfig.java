@@ -3,6 +3,7 @@ package hucode.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -16,7 +17,7 @@ public class WebMvcConfig {
     @Bean
     InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver vr = new InternalResourceViewResolver();
-        vr.setPrefix("/");
+        vr.setPrefix("/views");
         vr.setSuffix(".jsp");
         return vr;
     }
@@ -29,6 +30,8 @@ public class WebMvcConfig {
         ds.setPassword("123");
         return ds;
     }
+
+    public static JdbcTemplate jdbcTemplate;
 
 
 
